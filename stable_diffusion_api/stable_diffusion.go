@@ -83,6 +83,8 @@ func (api *apiImpl) TextToImage(req *TextToImageRequest) (*TextToImageResponse, 
 
 	request.Header.Set("Content-Type", "application/json; charset=UTF-8")
 
+	request.Header.Set("ngrok-skip-browser-warning", "true") // Add this line to include the header
+
 	client := &http.Client{}
 
 	response, err := client.Do(request)
@@ -181,6 +183,8 @@ func (api *apiImpl) UpscaleImage(upscaleReq *UpscaleRequest) (*UpscaleResponse, 
 
 	request.Header.Set("Content-Type", "application/json; charset=UTF-8")
 
+	request.Header.Set("ngrok-skip-browser-warning", "true") // Add this line to include the header
+
 	client := &http.Client{}
 
 	response, err := client.Do(request)
@@ -220,6 +224,8 @@ func (api *apiImpl) GetCurrentProgress() (*ProgressResponse, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	request.Header.Set("ngrok-skip-browser-warning", "true")
 
 	client := &http.Client{}
 
