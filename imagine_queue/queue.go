@@ -406,10 +406,8 @@ func (q *queueImpl) processCurrentImagine() {
 
 		// new generation with defaults
 		newGeneration := &entities.ImageGeneration{
-			Prompt: promptRes.SanitizedPrompt,
-			NegativePrompt: "ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, " +
-				"mutation, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, " +
-				"body out of frame, blurry, bad art, bad anatomy, blurred, text, watermark, grainy",
+			Prompt:            promptRes.SanitizedPrompt,
+			NegativePrompt:    "EasyNegative, Easy negative space, ",
 			Width:             defaultWidth,
 			Height:            defaultHeight,
 			RestoreFaces:      true,

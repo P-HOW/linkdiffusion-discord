@@ -91,11 +91,6 @@ func New(cfg Config) (Bot, error) {
 		return nil, err
 	}
 
-	err = bot.addImagineSettingsCommand()
-	if err != nil {
-		return nil, err
-	}
-
 	botSession.AddHandler(func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		switch i.Type {
 		case discordgo.InteractionApplicationCommand:
